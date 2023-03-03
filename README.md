@@ -1,24 +1,15 @@
-# myapp
-
-## Project setup
+### Project setup guide
 ```
 npm install
+npm run format
+```
+### Run project
+```
+npm run dev
+```
+### Run storybook
+```
+npm run storybook
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+noted: run the above commands in the project and in the terminal
