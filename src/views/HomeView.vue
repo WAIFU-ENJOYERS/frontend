@@ -1,14 +1,3 @@
-<script lang="ts">
-// import TheWelcome from "../components/TheWelcome.vue";
-export default {
-  data() {
-    return {
-      image: { backgroundImage: "url(https://vuejs.org/images/logo.png)" }
-    };
-  }
-};
-</script>
-
 <template>
   <v-container fluid fill-height class="justify-center mt-16">
       <v-sheet class="d-flex flex-column align-center">
