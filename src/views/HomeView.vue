@@ -1,12 +1,12 @@
 <template>
-  <v-container fluid fill-height class="justify-center mt-16">
-      <v-sheet class="d-flex flex-column align-center">
-        <v-sheet class="flex-column justify-center ma-10">
-          <p class="text-h2">
+  <v-container fluid fill-height class="justify-center mt-16 bg-transparent">
+      <v-sheet class="d-flex flex-column align-center bg-transparent">
+        <v-sheet class="flex-column justify-center ma-10 bg-transparent">
+          <p class="text-h2 text-black">
             Higher Lower: Waifu Edition
           </p>
         </v-sheet>
-        <v-sheet class="align-center ma-12">
+        <v-sheet class="align-center ma-12 bg-transparent">
           <v-btn
             rounded="xl"
             variant="flat"
