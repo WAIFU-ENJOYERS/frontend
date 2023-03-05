@@ -1,17 +1,6 @@
-<script lang="ts">
-// import TheWelcome from "../components/TheWelcome.vue";
-export default {
-  data() {
-    return {
-      image: { backgroundImage: "url(https://vuejs.org/images/logo.png)" }
-    };
-  }
-};
-</script>
+
 
 <template>
-  <main>
-
     <div>
       <h1>
         Waifu Edition Higher Lower
@@ -23,5 +12,4 @@ export default {
         Error
       </v-btn>
     </div>
-  </main>
 </template>
