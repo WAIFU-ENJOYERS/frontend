@@ -16,6 +16,7 @@ import { RouterLink, RouterView } from "vue-router";
   width: 100%;
   height: 100%;
   position: absolute;
+  filter: blur(5px) grayscale(50%) brightness(50%);
   top: 0;
   left: 0;
   background: url('https://giffiles.alphacoders.com/134/13493.gif') no-repeat center center;
