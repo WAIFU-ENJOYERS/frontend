@@ -1,15 +1,14 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
-</script>
-
 <template>
-  <span class="bg"></span>
-  <v-app>
-    <RouterView />
+    <v-app>
+      <!-- <h1>Hello World</h1> -->
+        <!-- <span class="bg"></span> -->
+        <!-- <v-sheet>hellesdasd</v-sheet> -->
+        <span class="bg"></span>
+        <slot />
+   
   </v-app>
+
 </template>
-
-
 
 <style>
 .bg {
