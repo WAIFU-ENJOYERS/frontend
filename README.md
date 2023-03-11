@@ -1,41 +1,42 @@
-### Project setup guide
-```
+# Nuxt 3 Minimal Starter
+
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+
+## Setup
+
+Make sure to install the dependencies:
+
+```bash
+# yarn
+yarn install
+
+# npm
 npm install
-npm run format
+
+# pnpm
+pnpm install
 ```
-### Run project
-```
+
+## Development Server
+
+Start the development server on http://localhost:3000
+
+```bash
 npm run dev
 ```
-### Run storybook
+
+## Production
+
+Build the application for production:
+
+```bash
+npm run build
 ```
-npm run storybook
+
+Locally preview production build:
+
+```bash
+npm run preview
 ```
-**noted: run the above commands in the project and in the terminal**
-### requesting data from backend guide
-Run the backend using
-```
-python manage.py runserver
-```
-put the code below in the view you want to request data from the backend
-```ts
-<script>
-    data() {
-            return {
-                data: [] //noted that you can change data to any name you want
-            }
-        },
-        mounted() {
-            this.get_data();
-        },
-        methods: {
-            get_data() { //noted that you can change get_data to any name you want
-                axios({
-                    method: '<http_method>', //get, post, etc
-                    url: '<backend_url>',
-                }).then(response => this.data = response.data);
-            }
-        }
-<\script>
-```
-finally, run the frontend and access the view
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
