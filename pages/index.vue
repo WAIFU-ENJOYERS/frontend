@@ -38,7 +38,6 @@
 
 </script>
 
-  
 <style>
 .bg {
   width: 100%;
