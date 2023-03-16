@@ -1,4 +1,3 @@
-import { collection, getDocs } from "firebase/firestore";
 import { queryByCollection } from "../lib/firestore";
 
 

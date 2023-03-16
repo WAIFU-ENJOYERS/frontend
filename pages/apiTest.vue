@@ -13,8 +13,7 @@ const name = ref();
 const likes = ref();
 const url = ref();
 onMounted(async () => {
-  const rand = Math.floor(Math.random() * 5000);
-  const { result } = await $fetch(`/api/random_waifu?key=${rand}`);
+  const { result } = await $fetch(`/api/random_waifu`);
   console.log(result)
   name.value = result.name
   likes.value = result.likes

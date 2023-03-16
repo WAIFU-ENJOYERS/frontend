@@ -2,8 +2,7 @@ import { collection, doc, getDocs, setDoc, addDoc, getCountFromServer, where, qu
 import { db } from "./firebase"
 
 export const addWaifu = async (name: string, likes: number, image_url: string, id: string) => {
-    console.log(name, likes, image_url)
-    await setDoc(doc(db, "waifu", `${id}`), {   
+    return await setDoc(doc(db, "waifu", `${id}`), {   
         name: name, 
         likes: likes, 
         image_url: image_url,

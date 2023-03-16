@@ -2,7 +2,7 @@ import { queryRandomWaifu } from "../lib/firestore";
 
 
 export default defineEventHandler( async (event) => {
-    const query = getQuery(event)
-    const docs = await queryRandomWaifu(query.key as string)
+    const rand = Math.floor(Math.random() * 996);
+    const docs = await queryRandomWaifu(`${rand}`)
     return { result: docs } 
 })
