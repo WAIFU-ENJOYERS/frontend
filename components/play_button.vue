@@ -9,7 +9,4 @@
 </template>
 
 <script setup lang="ts">
-defineEmits<{
-  (e: "play"): void
-}>()
 </script>

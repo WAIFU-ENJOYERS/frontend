@@ -7,16 +7,18 @@
         </v-card>
     </v-container>
 </template>
-  
+
 <script setup>
-const name = ref();
-const likes = ref();
-const url = ref();
+import { ref, onMounted } from 'vue'
+import { $fetch } from 'ofetch'
+const name = ref('')
+const likes = ref(0)
+const url = ref('')
 onMounted(async () => {
-    const { result } = await $fetch(`/api/random_waifu`);
-    console.log(result)
-    name.value = result.name
-    likes.value = result.likes
-    url.value = result.image_url
-});
+  const { result } = await $fetch('/api/random_waifu')
+  console.log(result)
+  name.value = result.name
+  likes.value = result.likes
+  url.value = result.image_url
+})
 </script>
