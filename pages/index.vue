@@ -5,6 +5,7 @@
     play_state.value = 1
   }
 </script>
+
 <template>
     <home v-if="play_state === 0" @play="play"></home>
     <play_page v-else></play_page>

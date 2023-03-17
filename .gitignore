@@ -33,6 +33,8 @@ playwright-report/
 /node_modules
 yarn.lock
 
+.nuxt/*
+
 .env
 server/lib/*.json
 server/lib/*.js
