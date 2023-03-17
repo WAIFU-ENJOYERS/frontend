@@ -38,3 +38,5 @@ server/lib/*.json
 server/lib/*.js
 server/lib/parseJSON.ts
 .nuxt/
+
+package-lock.json
