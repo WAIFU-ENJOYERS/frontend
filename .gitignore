@@ -34,3 +34,4 @@ playwright-report/
 yarn.lock
 
 .nuxt/
+package-lock.json
