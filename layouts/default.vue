@@ -5,9 +5,8 @@
         <!-- <v-sheet>hellesdasd</v-sheet> -->
         <span class="bg"></span>
         <slot />
-   
-  </v-app>
 
+    </v-app>
 </template>
 
 <style>
