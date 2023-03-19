@@ -1,8 +1,5 @@
 <template>
     <v-app>
-      <!-- <h1>Hello World</h1> -->
-        <!-- <span class="bg"></span> -->
-        <!-- <v-sheet>hellesdasd</v-sheet> -->
         <span class="bg"></span>
         <slot />
 
@@ -20,6 +17,6 @@
   background: url('https://giffiles.alphacoders.com/134/13493.gif') no-repeat center center;
   background-size: cover;
   background-color: black;
-  transform: scale(1.1);
+  transform: scale(1);
 }
 </style>
