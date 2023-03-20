@@ -7,6 +7,9 @@ function play () {
 </script>
 
 <template>
-    <home v-if="playState === 0" @play="play"></home>
-    <play_page v-else></play_page>
+  <home
+    v-if="playState === 0"
+    @play="play"
+  />
+  <play_page v-else />
 </template>

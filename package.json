@@ -7,17 +7,13 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prepare": "husky install",
-    "pre-commit": "eslint . --ext .js,.vue --fix"
+    "pre-commit": "eslint . --ext .vue --fix"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@babel/eslint-parser": "^7.21.3",
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "eslint": "^8.36.0",
-    "eslint-config-standard-with-typescript": "^34.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-vue": "^9.9.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "nuxt": "^3.2.3",
