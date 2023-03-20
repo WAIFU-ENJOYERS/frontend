@@ -28,8 +28,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { $fetch } from 'ofetch'
+import { onMounted, ref } from "vue";
+import { $fetch } from "ofetch";
+
 const guessedState = ref(0)
 const correctGuess = ref(0)
 /*eslint-disable */
@@ -48,23 +49,40 @@ const waifu2 = ref({
   url: ''
 })
 onMounted(async () => {
-  const result = await $fetch('/api/random_waifu')
-  console.log(result)
+  const result = await generateRandomWaifu()
   waifu1.value.name = result.name
   waifu1.value.likes = result.likes
   waifu1.value.url = result.image_url
-  const result2 = await $fetch('/api/random_waifu')
-  console.log(result2)
+  const result2 = await generateRandomWaifu()
   waifu2.value.name = result2.name
   waifu2.value.likes = result2.likes
   waifu2.value.url = result2.image_url
 })
+
+function generateRandomWaifu() {
+  return $fetch('/api/random_waifu')
+}
+
+async function transitionNewWaifu() {
+  waifu1.value.name = waifu2.value.name
+  waifu1.value.likes = waifu2.value.likes
+  waifu1.value.url = waifu2.value.url
+
+  const newWaifu = await generateRandomWaifu()
+  waifu2.value.name = newWaifu.name
+  waifu2.value.likes = newWaifu.likes
+  waifu2.value.url = newWaifu.image_url
+
+}
 function guess (guessState) {
   guessedState.value = 1
   console.log(guessState)
-  if ((guessState === "higher" && waifu2.value.likes > waifu1.value.likes) || (guessState === "lower" && waifu2.value.likes < waifu1.value.likes)) {
+  if ((guessState === "higher" && waifu2.value.likes >= waifu1.value.likes)
+    || (guessState === "lower" && waifu2.value.likes < waifu1.value.likes)) {
     correctGuess.value = 1
     console.log("correct")
+    transitionNewWaifu()
+    guessedState.value = 0
   }
   else {
     correctGuess.value = 0
