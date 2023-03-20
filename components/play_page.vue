@@ -9,6 +9,7 @@
                 <p class="text-white text-h2 font-weight-bold mt-1">"{{ waifu1.name }}"</p>
                 <p class="text-white"> has </p>
                 <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1">{{ waifu1.likes }}</p>
+                <p class="text-white"> likes </p>
             </v-card>
           </v-col>
           <v-col xs12 md6 cols="12" xs="12" md="6" class="ma-0 pa-0 bg1" v-bind:style="{ 'background-image': 'url(' + waifu2.url + ')' }">
@@ -16,17 +17,21 @@
                     :class="['flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
                     height="100%">
                     <p class="text-white text-h2 font-weight-bold mt-2">"{{ waifu2.name }}"</p>
-                    <higher-button></higher-button>
-                    <lower-button></lower-button>
+                    <higher-button @guess="guess" v-if="guessedState === 0"></higher-button>
+                    <lower-button @guess="guess" v-if="guessedState === 0"></lower-button>
+                    <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1" v-if="guessedState === 1">{{ waifu2.likes }}</p>
+                    <p class="text-white font-weight-bold"> likes than {{ waifu1.name }}</p>
                 </v-card>
           </v-col>
         </v-row>
     </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { $fetch } from 'ofetch'
+const guessedState = ref(0)
+const correctGuess = ref(0)
 /*eslint-disable */
 definePageMeta({
   layout: false
@@ -42,21 +47,30 @@ const waifu2 = ref({
   likes: 0,
   url: ''
 })
-const displayWaifus = ref([])
 onMounted(async () => {
   const result = await $fetch('/api/random_waifu')
   console.log(result)
   waifu1.value.name = result.name
   waifu1.value.likes = result.likes
   waifu1.value.url = result.image_url
-  displayWaifus.value.push(waifu1)
   const result2 = await $fetch('/api/random_waifu')
   console.log(result2)
   waifu2.value.name = result2.name
   waifu2.value.likes = result2.likes
   waifu2.value.url = result2.image_url
-  displayWaifus.value.push(waifu2)
 })
+function guess (guessState) {
+  guessedState.value = 1
+  console.log(guessState)
+  if ((guessState === "higher" && waifu2.value.likes > waifu1.value.likes) || (guessState === "lower" && waifu2.value.likes < waifu1.value.likes)) {
+    correctGuess.value = 1
+    console.log("correct")
+  }
+  else {
+    correctGuess.value = 0
+    console.log("wrong")
+  }
+}
 </script>
 
 <style>
@@ -74,8 +88,5 @@ onMounted(async () => {
   left: 0;
   right: 0;
   background-color: rgba(0,0,0,.4);
-}
-.h1 {
-
 }
 </style>

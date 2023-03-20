@@ -1,9 +1,8 @@
 <template>
-    <v-app>
-        <span class="bg"></span>
-        <slot />
-
-    </v-app>
+  <v-app>
+    <span class="bg" />
+    <slot />
+  </v-app>
 </template>
 
 <style>
