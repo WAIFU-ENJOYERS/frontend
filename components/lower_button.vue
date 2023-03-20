@@ -1,5 +1,5 @@
 <template>
-    <v-btn rounded="pill" variant="outlined" color="warning" size="x-large" @click="$emit('play')">
+    <v-btn rounded="pill" variant="flat" color="error" size="x-large" class="mt-5" @click="$emit('play')">
       <p class="text-button font-weight-bold"><v-icon icon="mdi-menu-down" /> Lower</p>
     </v-btn>
 </template>
