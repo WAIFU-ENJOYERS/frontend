@@ -21,7 +21,6 @@
           >
             <v-col v-if="show" xs12 md6 cols="12" xs="12" md="6" class="ma-0 pa-0 bg1" v-bind:style="{ 'background-image': 'url(' + waifu2.url + ')' }">
               <v-card
-              <v-card
                   :class="['flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
                   height="100%">
                 <p class="text-white text-h2 font-weight-bold mt-2">"{{ waifu2.name }}"</p>
