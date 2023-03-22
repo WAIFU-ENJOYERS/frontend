@@ -145,6 +145,12 @@ async function guess(guessState) {
     overflow: hidden;
 }
 
+p {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
 .bg1 {
   background: center center;
   background-size: cover;
