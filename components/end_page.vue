@@ -8,7 +8,7 @@
           <div><p>That‘s a terrible score</p>
             <p>The average score is 3.2. Put some effort into it :)</p></div>
         </div>
-        <v-btn class="game-end-button" rounded="pill" variant="flat" color="orange" size="x-large">
+        <v-btn @click="$emit('homepage')" class="game-end-button" rounded="pill" variant="flat" color="orange" size="x-large">
           <p class="text-button font-weight-bold text-white">Back to menu</p>
         </v-btn>
         <v-btn @click="$emit('play')" class="mx-5 game-end-button" rounded="pill" variant="flat" color="success" size="x-large">
