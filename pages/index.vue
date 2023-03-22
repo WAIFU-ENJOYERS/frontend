@@ -4,6 +4,10 @@ const playState = ref(0)
 function play () {
   playState.value = 1
 }
+
+function end () {
+  playState.value = 2
+}
 </script>
 
 <template>
@@ -11,5 +15,6 @@ function play () {
     v-if="playState === 0"
     @play="play"
   />
-  <play_page v-else />
+  <end-page v-else-if="playState === 2"></end-page>
+  <play_page v-else @end="end"/>
 </template>

@@ -41,6 +41,7 @@
 import { onMounted, ref } from "vue";
 import { $fetch } from "ofetch";
 
+const emit = defineEmits(['end'])
 const guessedState = ref(0)
 const correctGuess = ref(0)
 const show = ref(true)
@@ -135,11 +136,12 @@ async function guess(guessState) {
   else {
     correctGuess.value = 0
     console.log("wrong")
+    emit('end') // Redirected to end page, feels a bit too abrupt though
   }
 }
 </script>
 
-<style>
+<style scoped>
 .display {
     overflow: hidden;
 }
@@ -179,11 +181,11 @@ p {
 
     @keyframes slide-left-in{
         from  { transform: translateX(-100%);}
-        to { transform: translateX(0);} 
+        to { transform: translateX(0);}
     }
     @keyframes slide-left-out{
         from  { transform: translateX(0%);}
-        to { transform: translateX(100%);} 
+        to { transform: translateX(100%);}
     }
 
     .slide-right-enter-active {
@@ -194,11 +196,11 @@ p {
     }
     @keyframes slide-right-out{
         from  { transform: translateX(0%);}
-        to { transform: translateX(-100%);} 
+        to { transform: translateX(-100%);}
     }
     @keyframes slide-right-in{
         from  { transform: translateX(100%);}
-        to { transform: translateX(0);} 
+        to { transform: translateX(0);}
     } */
 
  /* door open and close transition */
