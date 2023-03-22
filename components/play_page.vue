@@ -16,21 +16,24 @@
             </v-card>
           </v-col>
         </Transition>
-        
-        <Transition name="slide-right"
-        >
-          <v-col v-if="show" xs12 md6 cols="12" xs="12" md="6" class="ma-0 pa-0 bg1" v-bind:style="{ 'background-image': 'url(' + waifu2.url + ')' }">
-                <v-card 
-                    :class="['flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
-                    height="100%">
-                    <p class="text-white text-h2 font-weight-bold mt-2">"{{ waifu2.name }}"</p>
-                    <higher-button  @guess="guess" v-if="guessedState === 0"></higher-button>
-                    <lower-button  @guess="guess" v-if="guessedState === 0"></lower-button>
-                    <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1" v-if="guessedState === 1">{{ waifu2.likes }}</p>
-                    <p class="text-white font-weight-bold"> likes than {{ waifu1.name }}</p>
-                </v-card>
-          </v-col>
-        </Transition>
+
+          <Transition name="slide-right"
+          >
+            <v-col v-if="show" xs12 md6 cols="12" xs="12" md="6" class="ma-0 pa-0 bg1" v-bind:style="{ 'background-image': 'url(' + waifu2.url + ')' }">
+              <v-card
+              <v-card
+                  :class="['flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
+                  height="100%">
+                <p class="text-white text-h2 font-weight-bold mt-2">"{{ waifu2.name }}"</p>
+                <higher-button  @guess="guess" v-if="guessedState === 0"></higher-button>
+                <lower-button  @guess="guess" v-if="guessedState === 0"></lower-button>
+                <p class="text-white" v-if="guessedState === 1"> has </p>
+                <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1" v-if="guessedState === 1">{{ waifu2.likes }}</p>
+                <p class="text-white font-weight-bold"> likes than {{ waifu1.name }}</p>
+                <p class="text-white" v-if="guessedState === 1"> likes </p>
+              </v-card>
+            </v-col>
+          </Transition>
         </v-row>
     </v-container>
 </template>
