@@ -11,7 +11,7 @@
         <v-btn @click="$emit('homepage')" class="game-end-button" rounded="pill" variant="flat" color="orange" size="x-large">
           <p class="text-button font-weight-bold text-white">Back to menu</p>
         </v-btn>
-        <v-btn @click="$emit('play')" class="mx-5 game-end-button" rounded="pill" variant="flat" color="success" size="x-large">
+        <v-btn @click="$emit('play')" class="mx-5 my-5 game-end-button" rounded="pill" variant="flat" color="success" size="x-large">
           <p class="text-button font-weight-bold">Play again</p>
         </v-btn>
       </div>
