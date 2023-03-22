@@ -136,7 +136,8 @@ async function guess(guessState) {
   else {
     correctGuess.value = 0
     console.log("wrong")
-    emit('end') // Redirected to end page, feels a bit too abrupt though
+    await sleep(3000)
+    emit('end')
   }
 }
 </script>
