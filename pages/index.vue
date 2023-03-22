@@ -15,6 +15,6 @@ function end () {
     v-if="playState === 0"
     @play="play"
   />
-  <end-page v-else-if="playState === 2"></end-page>
+  <end-page v-else-if="playState === 2" @play="play"></end-page>
   <play_page v-else @end="end"/>
 </template>
