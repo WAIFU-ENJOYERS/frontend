@@ -42,6 +42,7 @@ import { onMounted, ref } from "vue";
 import { $fetch } from "ofetch";
 import win from "../pages/index.vue"
 
+const emit = defineEmits(['end'])
 const guessedState = ref(0)
 const correctGuess = ref(0)
 const backgroundState = ref(0)
@@ -140,11 +141,13 @@ async function guess(guessState) {
   else {
     correctGuess.value = 0
     console.log("wrong")
+    await sleep(3000)
+    emit('end')
   }
 }
 </script>
 
-<style>
+<style scoped>
 .display {
     overflow: hidden;
 }
@@ -184,11 +187,11 @@ p {
 
     @keyframes slide-left-in{
         from  { transform: translateX(-100%);}
-        to { transform: translateX(0);} 
+        to { transform: translateX(0);}
     }
     @keyframes slide-left-out{
         from  { transform: translateX(0%);}
-        to { transform: translateX(100%);} 
+        to { transform: translateX(100%);}
     }
 
     .slide-right-enter-active {
@@ -199,11 +202,11 @@ p {
     }
     @keyframes slide-right-out{
         from  { transform: translateX(0%);}
-        to { transform: translateX(-100%);} 
+        to { transform: translateX(-100%);}
     }
     @keyframes slide-right-in{
         from  { transform: translateX(100%);}
-        to { transform: translateX(0);} 
+        to { transform: translateX(0);}
     } */
 
  /* door open and close transition */
