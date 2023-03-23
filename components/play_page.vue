@@ -1,5 +1,6 @@
 <template>
     <v-container bg-transparent class="ma-0 pa-0 fill-height" fluid>
+        <span class="bg2" v-if="backgroundState === 1"/>
         <v-row class="ma-0 pa-0 fill-height">
         <Transition name="slide-left"
         @after-leave="onAfterLeave"
@@ -28,7 +29,6 @@
                 <lower-button  @guess="guess" v-if="guessedState === 0"></lower-button>
                 <p class="text-white" v-if="guessedState === 1"> has </p>
                 <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1" v-if="guessedState === 1">{{ waifu2.likes }}</p>
-                <p class="text-white font-weight-bold"> likes than {{ waifu1.name }}</p>
                 <p class="text-white" v-if="guessedState === 1"> likes </p>
               </v-card>
             </v-col>
@@ -40,9 +40,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { $fetch } from "ofetch";
+import win from "../pages/index.vue"
 
 const guessedState = ref(0)
 const correctGuess = ref(0)
+const backgroundState = ref(0)
 const show = ref(true)
 /*eslint-disable */
 definePageMeta({
@@ -116,13 +118,16 @@ async function winGame() {
 
   console.log("correct")
   correctGuess.value = 1
+  backgroundState.value = 1
 
   console.log("Stop Begins")
-  await sleep(3000)
+  await sleep(500)
   console.log("Stop Done")
 
   show.value = !show.value
   guessedState.value = 0
+  // await sleep(3000)
+  // backgroundState.value = 0  -> To change from correct bg back to normal but might not be needed
 }
 
 async function guess(guessState) {
