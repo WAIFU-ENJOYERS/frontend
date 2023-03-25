@@ -2,17 +2,11 @@
 // There is also pinia which does similar thing.
 import { ref } from 'vue'
 const backgroundState = ref(0)
-function win () {
-  console.log("run bg change")
-  backgroundState.value = 1
-}
-
 </script>
 
 <template>
   <v-app>
-    <span class="bg" v-if="backgroundState === 0"/>
-    <span class="bg2" v-if="backgroundState === 1"/>
+    <span class="bg"/>
     <slot />
   </v-app>
 </template>
@@ -41,6 +35,18 @@ function win () {
   /*
   background: url('https://media.tenor.com/Hw7f-4l0zgEAAAAC/check-green.gif') no-repeat center center;
   */
+  background-size: cover;
+  background-color: black;
+  transform: scale(1);
+}
+.bg3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  filter: blur(5px) grayscale(50%) brightness(50%);
+  top: 0;
+  left: 0;
+  background: url('https://i.pinimg.com/originals/53/73/66/5373667e873a4591d76250220bf3615a.gif') no-repeat center center;
   background-size: cover;
   background-color: black;
   transform: scale(1);

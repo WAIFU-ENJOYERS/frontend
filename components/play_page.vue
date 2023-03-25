@@ -131,6 +131,15 @@ async function winGame() {
   // backgroundState.value = 0  -> To change from correct bg back to normal but might not be needed
 }
 
+async function loseGame() {
+
+  console.log("wrong")
+  correctGuess.value = 0
+
+  await sleep(1000)
+  emit('end')
+}
+
 async function guess(guessState) {
   guessedState.value = 1
   console.log(guessState)
@@ -139,10 +148,7 @@ async function guess(guessState) {
     await winGame()
   }
   else {
-    correctGuess.value = 0
-    console.log("wrong")
-    await sleep(3000)
-    emit('end')
+    await loseGame()
   }
 }
 </script>

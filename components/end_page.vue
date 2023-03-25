@@ -1,4 +1,5 @@
 <template>
+  <span className="bg3"/>
   <v-card flat class="bg-transparent d-flex align-center justify-center text-white mt-16">
     <div class="game-end">
       <div class="game-end__wrapper">
@@ -20,7 +21,9 @@
 </template>
 
 <script setup>
-
+definePageMeta({
+  layout: "custom",
+});
 </script>
 
 <style scoped>
