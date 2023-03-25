@@ -26,3 +26,9 @@ export const queryRandomWaifu = async (key: string) => {
     return snapshot.data();
 };
 
+export const queryRandomBackground = async (key: string) => {
+    const docRef = doc(db, "backgrounds", key);
+    const snapshot = await getDoc(docRef);
+    return snapshot.data();
+};
+
