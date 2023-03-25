@@ -1,17 +1,28 @@
 <script setup lang="ts">
 // There is also pinia which does similar thing.
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 const backgroundState = ref(0)
 function win () {
   console.log("run bg change")
   backgroundState.value = 1
 }
+function generateRandomBackground() {
+  return $fetch('/api/random_background')
+}
+
+const background = ref("")
+onMounted(async () => {
+    const result = await generateRandomBackground()
+    background.value = result.url
+})
 
 </script>
 
 <template>
   <v-app>
-    <span class="bg" v-if="backgroundState === 0"/>
+    <span class="bg"
+    v-bind:style="{ 'background-image': 'url(' + background + ')' }"
+    v-if="backgroundState === 0"/>
     <span class="bg2" v-if="backgroundState === 1"/>
     <slot />
   </v-app>
@@ -25,7 +36,7 @@ function win () {
   filter: blur(5px) grayscale(50%) brightness(50%);
   top: 0;
   left: 0;
-  background: url('https://giffiles.alphacoders.com/134/13493.gif') no-repeat center center;
+  background: no-repeat center center;
   background-size: cover;
   background-color: black;
   transform: scale(1);
