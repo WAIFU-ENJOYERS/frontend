@@ -1,12 +1,9 @@
 <template>
-  <v-card flat class="bg-transparent d-flex align-center justify-center text-white mt-16">
+  <v-card flat class="bg-transparent d-flex align-center justify-center text-white fill-height">
     <div class="game-end">
       <div class="game-end__wrapper">
-        <!-- TO BE ADDED: Currently these are all placeholder texts -->
         <div class="game-end-score-wrapper"><p class="game-end-score">You scored:
-          <span class="game-end-score__score">0</span></p>
-          <div><p>That‘s a terrible score</p>
-            <p>The average score is 3.2. Put some effort into it :)</p></div>
+          <span class="game-end-score__score"><Score></Score></span></p>
         </div>
         <v-btn @click="$emit('homepage')" class="game-end-button" rounded="pill" variant="flat" color="orange" size="x-large">
           <p class="text-button font-weight-bold text-white">Back to menu</p>

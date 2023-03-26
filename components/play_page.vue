@@ -11,11 +11,15 @@
                 :class="[didLose ? 'loseGameLeft flat d-flex flex-column align-center justify-center bg-transparent':
                 'flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
                 height="100%">
-                <p class="text-white text-h2 font-weight-bold mt-1">"{{ waifu1.name }}"</p>
-                <p class="text-white"> has </p>
-                <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1">{{ waifu1.likes }}</p>
-                <p class="text-white"> likes </p>
+                <v-card flat class='bg-transparent justify-center d-flex flex-column fill-height'>
+                  <p class="text-white text-h2 font-weight-bold mt-1">"{{ waifu1.name }}"</p>
+                  <p class="text-white"> has </p>
+                  <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1">{{ waifu1.likes }}</p>
+                  <p class="text-white"> likes </p>
+                </v-card>
+                <v-card flat class="bg-transparent d-flex align-xl-start mt-auto"><p class="text-white font-weight-bold">Score: <Score></Score> </p></v-card>
             </v-card>
+
           </v-col>
         </Transition>
 
@@ -42,7 +46,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { $fetch } from "ofetch";
-import win from "../pages/index.vue"
+import { store } from './store.js';
 
 const emit = defineEmits(['end'])
 const guessedState = ref(0)
@@ -50,6 +54,7 @@ const correctGuess = ref(0)
 const backgroundState = ref(0)
 const show = ref(true)
 const didLose = ref(false)
+
 /*eslint-disable */
 definePageMeta({
   layout: false
@@ -83,16 +88,20 @@ onMounted(async () => {
   waifu3.value.name = result3.name
   waifu3.value.likes = result3.likes
   waifu3.value.url = result3.image_url
+
+  store.score = 0
 })
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function incrementScore() {
+  store.score++
+}
+
 
 const onAfterLeave = () => {
-
-
     transitionNewWaifu()
     show.value = true
 }
@@ -123,10 +132,10 @@ async function winGame() {
   console.log("correct")
   correctGuess.value = 1
   backgroundState.value = 1
-
   console.log("Stop Begins")
   await sleep(500)
   console.log("Stop Done")
+  incrementScore()
 
   show.value = !show.value
   guessedState.value = 0
