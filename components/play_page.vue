@@ -8,13 +8,15 @@
           <v-col v-if="show" xs12 md6 cols="12" xs="12" md="6" class="ma-0 pa-0 bg1"
               v-bind:style="{ 'background-image': 'url(' + waifu1.url + ')' }">
             <v-card
-                :class="['flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
+                :class="['flat d-flex flex-column justify-center bg-transparent', `elevation-${0}`]"
                 height="100%">
                 <p class="text-white text-h2 font-weight-bold mt-1">"{{ waifu1.name }}"</p>
                 <p class="text-white"> has </p>
                 <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1">{{ waifu1.likes }}</p>
                 <p class="text-white"> likes </p>
+                <p class="text-white font-weight-bold">Score: <Score></Score> </p>
             </v-card>
+
           </v-col>
         </Transition>
 
@@ -40,13 +42,14 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { $fetch } from "ofetch";
-import win from "../pages/index.vue"
+import { store } from './store.js';
 
 const emit = defineEmits(['end'])
 const guessedState = ref(0)
 const correctGuess = ref(0)
 const backgroundState = ref(0)
 const show = ref(true)
+
 /*eslint-disable */
 definePageMeta({
   layout: false
@@ -80,16 +83,20 @@ onMounted(async () => {
   waifu3.value.name = result3.name
   waifu3.value.likes = result3.likes
   waifu3.value.url = result3.image_url
+
+  store.score = 0
 })
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function incrementScore() {
+  store.score++
+}
+
 
 const onAfterLeave = () => {
-
-
     transitionNewWaifu()
     show.value = true
 }
@@ -120,10 +127,10 @@ async function winGame() {
   console.log("correct")
   correctGuess.value = 1
   backgroundState.value = 1
-
   console.log("Stop Begins")
   await sleep(500)
   console.log("Stop Done")
+  incrementScore()
 
   show.value = !show.value
   guessedState.value = 0
