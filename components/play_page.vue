@@ -8,7 +8,8 @@
           <v-col v-if="show" xs12 md6 cols="12" xs="12" md="6" class="ma-0 pa-0 bg1"
               v-bind:style="{ 'background-image': 'url(' + waifu1.url + ')' }">
             <v-card
-                :class="['flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
+                :class="[didLose ? 'loseGameLeft flat d-flex flex-column align-center justify-center bg-transparent':
+                'flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
                 height="100%">
                 <p class="text-white text-h2 font-weight-bold mt-1">"{{ waifu1.name }}"</p>
                 <p class="text-white"> has </p>
@@ -22,7 +23,8 @@
           >
             <v-col v-if="show" xs12 md6 cols="12" xs="12" md="6" class="ma-0 pa-0 bg1" v-bind:style="{ 'background-image': 'url(' + waifu2.url + ')' }">
               <v-card
-                  :class="['flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
+                  :class="[didLose ? 'loseGameRight flat d-flex flex-column align-center justify-center bg-transparent':
+                  'flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
                   height="100%">
                 <p class="text-white text-h2 font-weight-bold mt-2">"{{ waifu2.name }}"</p>
                 <higher-button  @guess="guess" v-if="guessedState === 0"></higher-button>
@@ -47,6 +49,7 @@ const guessedState = ref(0)
 const correctGuess = ref(0)
 const backgroundState = ref(0)
 const show = ref(true)
+const didLose = ref(false)
 /*eslint-disable */
 definePageMeta({
   layout: false
@@ -131,6 +134,16 @@ async function winGame() {
   // backgroundState.value = 0  -> To change from correct bg back to normal but might not be needed
 }
 
+async function loseGame() {
+
+  console.log("wrong")
+  correctGuess.value = 0
+  didLose.value = true
+
+  await sleep(1900)
+  emit('end')
+}
+
 async function guess(guessState) {
   guessedState.value = 1
   console.log(guessState)
@@ -139,10 +152,7 @@ async function guess(guessState) {
     await winGame()
   }
   else {
-    correctGuess.value = 0
-    console.log("wrong")
-    await sleep(3000)
-    emit('end')
+    await loseGame()
   }
 }
 </script>
@@ -156,6 +166,16 @@ p {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+}
+
+.loseGameLeft {
+  background: url("../assets/cleanCrossLeft.png") no-repeat center right;
+  background-size: 12%;
+}
+
+.loseGameRight {
+  background: url("../assets/cleanCrossRight.png") no-repeat center left;
+  background-size: 12%;
 }
 
 .bg1 {

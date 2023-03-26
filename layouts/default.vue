@@ -1,11 +1,6 @@
 <script setup lang="ts">
 // There is also pinia which does similar thing.
-import { ref, onMounted } from 'vue'
-const backgroundState = ref(0)
-function win () {
-  console.log("run bg change")
-  backgroundState.value = 1
-}
+import { onMounted } from 'vue'
 function generateRandomBackground() {
   return $fetch('/api/random_background')
 }
@@ -21,9 +16,7 @@ onMounted(async () => {
 <template>
   <v-app>
     <span class="bg"
-    v-bind:style="{ 'background-image': 'url(' + background + ')' }"
-    v-if="backgroundState === 0"/>
-    <span class="bg2" v-if="backgroundState === 1"/>
+    v-bind:style="{ 'background-image': 'url(' + background + ')' }"/>
     <slot />
   </v-app>
 </template>
@@ -49,9 +42,6 @@ onMounted(async () => {
   top: 0;
   left: 0;
   background: url('https://w0.peakpx.com/wallpaper/768/175/HD-wallpaper-check-mark-neon-icon-green-background-neon-symbols-check-mark-neon-icons-check-mark-sign-computer-signs-check-mark-icon-computer-icons.jpg') no-repeat center center;
-  /*
-  background: url('https://media.tenor.com/Hw7f-4l0zgEAAAAC/check-green.gif') no-repeat center center;
-  */
   background-size: cover;
   background-color: black;
   transform: scale(1);
