@@ -8,13 +8,15 @@
           <v-col v-if="show" xs12 md6 cols="12" xs="12" md="6" class="ma-0 pa-0 bg1"
               v-bind:style="{ 'background-image': 'url(' + waifu1.url + ')' }">
             <v-card
-                :class="['flat d-flex flex-column justify-center bg-transparent', `elevation-${0}`]"
+                :class="['flat d-flex flex-column bg-transparent', `elevation-${0}`]"
                 height="100%">
-                <p class="text-white text-h2 font-weight-bold mt-1">"{{ waifu1.name }}"</p>
-                <p class="text-white"> has </p>
-                <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1">{{ waifu1.likes }}</p>
-                <p class="text-white"> likes </p>
-                <p class="text-white font-weight-bold">Score: <Score></Score> </p>
+                <v-card flat class='bg-transparent justify-center d-flex flex-column fill-height'>
+                  <p class="text-white text-h2 font-weight-bold mt-1">"{{ waifu1.name }}"</p>
+                  <p class="text-white"> has </p>
+                  <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1">{{ waifu1.likes }}</p>
+                  <p class="text-white"> likes </p>
+                </v-card>
+                <v-card flat class="bg-transparent d-flex align-xl-start mt-auto"><p class="text-white font-weight-bold">Score: <Score></Score> </p></v-card>
             </v-card>
 
           </v-col>
