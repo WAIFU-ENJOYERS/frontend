@@ -2,7 +2,6 @@
   <v-card flat class="bg-transparent d-flex align-center justify-center text-white fill-height">
     <div class="game-end">
       <div class="game-end__wrapper">
-        <!-- TO BE ADDED: Currently these are all placeholder texts -->
         <div class="game-end-score-wrapper"><p class="game-end-score">You scored:
           <span class="game-end-score__score"><Score></Score></span></p>
         </div>
@@ -18,6 +17,9 @@
 </template>
 
 <script setup>
+definePageMeta({
+  layout: "custom",
+});
 </script>
 
 <style scoped>
