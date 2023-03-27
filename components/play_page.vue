@@ -8,8 +8,8 @@
           <v-col v-if="show" xs12 md6 cols="12" xs="12" md="6" class="ma-0 pa-0 bg1"
               v-bind:style="{ 'background-image': 'url(' + waifu1.url + ')' }">
             <v-card
-                :class="[didLose ? 'loseGameLeft flat d-flex flex-column align-center justify-center bg-transparent':
-                'flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]"
+                :class="[didLose ? 'loseGameLeft flat d-flex flex-column bg-transparent':
+                'flat d-flex flex-column bg-transparent', `elevation-${0}`]"
                 height="100%">
                 <v-card flat class='bg-transparent justify-center d-flex flex-column fill-height'>
                   <p class="text-white text-h2 font-weight-bold mt-1">"{{ waifu1.name }}"</p>
@@ -46,7 +46,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { $fetch } from "ofetch";
-import { store } from './store.js';
+import { store } from './store';
 
 const emit = defineEmits(['end'])
 const guessedState = ref(0)
@@ -76,6 +76,7 @@ const waifu3 = ref({
   url: ''
 })
 onMounted(async () => {
+  store.score = 0
   const result = await generateRandomWaifu()
   waifu1.value.name = result.name
   waifu1.value.likes = result.likes
@@ -88,8 +89,6 @@ onMounted(async () => {
   waifu3.value.name = result3.name
   waifu3.value.likes = result3.likes
   waifu3.value.url = result3.image_url
-
-  store.score = 0
 })
 
 function sleep(ms) {
