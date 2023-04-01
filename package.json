@@ -7,11 +7,15 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "prepare": "husky install",
-    "pre-commit": "eslint . --ext .vue --fix"
+    "pre-commit": "eslint . --ext .vue --fix",
+    "test": "vitest --run --reporter verbose --globals",
+    "test:watch": "vitest --reporter verbose --globals",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.3",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@vitest/coverage-istanbul": "^0.29.8",
     "eslint": "^8.36.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "firebase-admin": "^11.5.0",
@@ -20,7 +24,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "nuxt": "^3.2.3",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vitest": "^0.29.8"
   },
   "dependencies": {
     "@mdi/font": "^7.1.96",
