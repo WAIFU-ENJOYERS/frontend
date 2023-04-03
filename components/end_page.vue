@@ -1,13 +1,13 @@
 <script setup lang="ts">
 // There is also pinia which does similar thing.
 import { onMounted } from 'vue'
-function generateRandomBackground() {
-    return $fetch('/api/random_background')
+function generateRandomEndBackground() {
+    return $fetch('/api/random_end_background')
 }
 
 const background = ref("")
 onMounted(async () => {
-    const result = await generateRandomBackground()
+    const result = await generateRandomEndBackground()
     background.value = result.url
 })
 
