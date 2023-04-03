@@ -41,7 +41,7 @@ onMounted(async () => {
   filter: blur(5px) grayscale(50%) brightness(50%);
   top: 0;
   left: 0;
-  background: url('https://w0.peakpx.com/wallpaper/768/175/HD-wallpaper-check-mark-neon-icon-green-background-neon-symbols-check-mark-neon-icons-check-mark-sign-computer-signs-check-mark-icon-computer-icons.jpg') no-repeat center center;
+  background: url('https://media.tenor.com/9ymo67Vq-yoAAAAC/anime-approve.gif') no-repeat center center;
   background-size: cover;
   background-color: black;
   transform: scale(1);
