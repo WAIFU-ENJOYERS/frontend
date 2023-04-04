@@ -32,3 +32,8 @@ export const queryRandomBackground = async (key: string) => {
     return snapshot.data();
 };
 
+export const queryRandomEndBackground = async (key: string) => {
+    const docRef = doc(db, "end_backgrounds", key);
+    const snapshot = await getDoc(docRef);
+    return snapshot.data();
+};
