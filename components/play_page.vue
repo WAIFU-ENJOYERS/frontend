@@ -177,13 +177,13 @@ p {
 }
 
 .loseGameLeft {
-  background: url("../assets/cleanCrossLeft.png") no-repeat center right;
-  background-size: 12%;
+  background: url("../assets/cleanCross.png") no-repeat top left;
+  background-size: 17%;
 }
 
 .loseGameRight {
-  background: url("../assets/cleanCrossRight.png") no-repeat center left;
-  background-size: 12%;
+  background: url("../assets/cleanCross.png") no-repeat bottom right;
+  background-size: 17%;
 }
 
 .bg1 {
