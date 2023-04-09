@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: coverage-report
-          path: coverage/Icov.Info
+          path: coverage/Icov.info
           retention-days: 7
 
   sonarcloud:
