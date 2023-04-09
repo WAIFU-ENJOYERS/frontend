@@ -20,6 +20,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WAIFUHIGHERLOWER }}'
           channelId: live
           projectId: waifuhigherlower
+      - run: npm run coverage
       - name: Upload coverage report artifact
         uses: actions/upload-artifact@v2
         with:
