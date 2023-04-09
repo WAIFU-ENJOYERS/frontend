@@ -41,4 +41,7 @@ server/lib/*.js
 server/lib/parseJSON.ts
 .nuxt/
 
+.output/
+.firebase/
+
 package-lock.json
