@@ -4,7 +4,9 @@
 
 ## Introduction
 
-We turned the original game higher or lower and added our own twist by instead of guessing if a term has a higher google search than other, we guess if a waifu has more likes than other, we got this data from a popular website MyAnimeList ~~definitely not rigged~~.
+We turned the original game higher or lower and added our own twist by instead of guessing if a key word has a higher google search than other, we guess if a waifu has more likes than other, we got this data from a popular website MyAnimeList ~~definitely not rigged~~.
+
+Inspiration for this project: http://www.higherlowergame.com/
 
 Source of our data: https://www.kaggle.com/datasets/andreuvallhernndez/myanimelist-jikan?select=characters.csv
 
@@ -24,7 +26,7 @@ Source of our data: https://www.kaggle.com/datasets/andreuvallhernndez/myanimeli
 
 ![homepage](/assets/end-page.png)
 
-# To run our project
+# To run/test our project
 
 ## Setup
 
@@ -70,4 +72,10 @@ To run our E2E tests
 
 ```bash
 npx playwright test
+```
+
+### See test coverage
+
+```
+npm run coverage
 ```
