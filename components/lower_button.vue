@@ -8,7 +8,7 @@
     @click="$emit('guess', 'lower')"
   >
     <p class="text-button font-weight-bold">
-      <v-icon icon="mdi-menu-down" /> Lower
+      <v-icon icon="mdi-menu-down" />Lower
     </p>
   </v-btn>
 </template>
