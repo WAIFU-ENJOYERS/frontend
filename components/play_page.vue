@@ -96,7 +96,7 @@ function sleep(ms) {
 }
 
 function incrementScore() {
-  store.score++
+  store.increment()
 }
 
 
