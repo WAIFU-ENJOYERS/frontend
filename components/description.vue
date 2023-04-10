@@ -10,7 +10,7 @@
   <v-card :class="['flat d-flex flex-column align-center justify-center bg-transparent', `elevation-${0}`]">
     <p class="text-white align-center mt-5 justify-center font-weight-bold">
       A game where you guess if a waifu has higher or lower likes than other waifu based <br>
-      on anime list data we collected (test cd)
+      on anime list data we collected
     </p>
   </v-card>
   <!-- </v-sheet> -->
