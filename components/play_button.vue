@@ -7,13 +7,10 @@
       size="x-large"
       @click="$emit('play')"
     >
-      <p class="text-button font-weight-bold">
-        Play Game
-      </p>
+      <p class="text-button font-weight-bold">Play Game</p>
     </v-btn>
     <v-card />
   </v-sheet>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>

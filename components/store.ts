@@ -1,8 +1,8 @@
-import { reactive } from 'vue'
+import { reactive } from "vue";
 
 export const store = reactive({
   score: 0,
   increment() {
-    this.score++
-  }
-})
+    this.score++;
+  },
+});
