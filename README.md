@@ -6,27 +6,23 @@
 
 We turned the original game higher or lower and added our own twist by instead of guessing if a term has a higher google search than other, we guess if a waifu has more likes than other, we got this data from a popular website MyAnimeList ~~definitely not rigged~~.
 
-Source of our data:  https://www.kaggle.com/datasets/andreuvallhernndez/myanimelist-jikan?select=characters.csv
+Source of our data: https://www.kaggle.com/datasets/andreuvallhernndez/myanimelist-jikan?select=characters.csv
 
 <b> Remark </b>: A lot of preprocess happened to filter out nsfw waifus to keep our website <b> PG </b>
 
 ## Preview of the website
 
-#### Hompage 
+#### Hompage
 
 ![homepage](/assets/home-page.png)
-
 
 #### Play Page
 
 ![homepage](/assets/play-page.png)
 
-
 #### Return Page / End Game Page
 
 ![homepage](/assets/end-page.png)
-
-
 
 # To run our project
 
@@ -64,7 +60,7 @@ npm run preview
 
 ## Test
 
-To run our unit tests 
+To run our unit tests
 
 ```bash
 npm run test
@@ -75,5 +71,3 @@ To run our E2E tests
 ```bash
 npx playwright test
 ```
-
-
