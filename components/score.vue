@@ -1,10 +1,8 @@
 <template>
- {{ store.score }}
+  {{ store.score }}
 </template>
 
 <script lang="ts" setup>
-import { store } from './store'
+import { store } from "./store";
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

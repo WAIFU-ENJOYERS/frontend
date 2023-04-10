@@ -3,11 +3,7 @@
 </script>
 
 <template>
-  <v-container
-    fluid
-    fill-height
-    class="justify-center mt-16 bg-transparent"
-  >
+  <v-container fluid fill-height class="justify-center mt-16 bg-transparent">
     <v-sheet class="d-flex flex-column align-center bg-transparent">
       <logo />
       <description />
