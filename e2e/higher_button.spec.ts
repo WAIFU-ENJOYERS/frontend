@@ -2,7 +2,8 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Game tests", () => {
   test("higher buttons is work", async ({ page }) => {
-    await page.goto("http://localhost:3000/", { timeout: 100000 });
+    // await page.goto("http://localhost:3000/", { timeout: 100000 });
+    await page.goto('https://frontend-red-phi.vercel.app/', { timeout: 100000 });
     const button = page.getByText("Play Game");
     await button.click({ timeout: 100000 });
 
