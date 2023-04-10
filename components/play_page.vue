@@ -169,12 +169,9 @@ async function transitionNewWaifu() {
 }
 
 async function winGame() {
-  console.log("correct");
   correctGuess.value = 1;
   backgroundState.value = 1;
-  console.log("Stop Begins");
   await sleep(500);
-  console.log("Stop Done");
   incrementScore();
 
   show.value = !show.value;
@@ -184,7 +181,6 @@ async function winGame() {
 }
 
 async function loseGame() {
-  console.log("wrong");
   correctGuess.value = 0;
   didLose.value = true;
 
@@ -194,7 +190,6 @@ async function loseGame() {
 
 async function guess(guessState) {
   guessedState.value = 1;
-  console.log(guessState);
   if (
     (guessState === "higher" && waifu2.value.likes >= waifu1.value.likes) ||
     (guessState === "lower" && waifu2.value.likes < waifu1.value.likes)
