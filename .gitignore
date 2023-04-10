@@ -43,5 +43,6 @@ server/lib/parseJSON.ts
 
 .output/
 .firebase/
+.vercel/
 
 package-lock.json

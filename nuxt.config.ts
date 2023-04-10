@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     },
     
     nitro: {
-        preset: 'firebase'
+        preset: 'vercel'
     },
     runtimeConfig: {
         apiKey: process.env.API_KEY,
