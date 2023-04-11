@@ -30,7 +30,10 @@
                 "{{ waifu1.name }}"
               </p>
               <p class="text-white">has</p>
-              <p class="text-yellow-accent-3 text-h3 font-weight-bold mt-1">
+              <p
+                data-testid="left-likes"
+                class="text-yellow-accent-3 text-h3 font-weight-bold mt-1"
+              >
                 {{ waifu1.likes }}
               </p>
               <p class="text-white">likes</p>
@@ -79,6 +82,7 @@
             <p v-if="guessedState === 1" class="text-white">has</p>
             <p
               v-if="guessedState === 1"
+              data-testid="right-likes"
               class="text-yellow-accent-3 text-h3 font-weight-bold mt-1"
             >
               {{ waifu2.likes }}

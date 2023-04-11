@@ -35,7 +35,12 @@ onMounted(async () => {
           size="x-large"
           @click="$emit('homepage')"
         >
-          <p class="text-button font-weight-bold text-white">Back to menu</p>
+          <p
+            data-testid="back-to-menu"
+            class="text-button font-weight-bold text-white"
+          >
+            Back to menu
+          </p>
         </v-btn>
         <v-btn
           class="mx-5 my-5 game-end-button"
@@ -45,7 +50,9 @@ onMounted(async () => {
           size="x-large"
           @click="$emit('play')"
         >
-          <p class="text-button font-weight-bold">Play again</p>
+          <p data-testid="play-again" class="text-button font-weight-bold">
+            Play again
+          </p>
         </v-btn>
       </div>
     </div>
