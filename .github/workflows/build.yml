@@ -9,20 +9,7 @@ name: SonarCloud Scan
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  coverage_and_scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: create env
-        run: echo "${{ secrets.ENV_FILE }}" > .env
-      - run: npm i && npm run build
-      - run: npm run coverage && cat ./coverage/lcov.info
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-  test:
+  e2e_tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -42,6 +29,20 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+  coverage_and_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: create env
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+      - run: npm i && npm run build
+      - run: npm run coverage && cat ./coverage/lcov.info
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 
   linting:
     runs-on: ubuntu-latest
