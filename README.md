@@ -1,4 +1,5 @@
 # Higher or Lower: Waifu Edition
+
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=WAIFU-ENJOYERS_frontend&metric=coverage)](https://sonarcloud.io/summary/new_code?id=WAIFU-ENJOYERS_frontend)
 
 ## Demo website: https://frontend-red-phi.vercel.app/
