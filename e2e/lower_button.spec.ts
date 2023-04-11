@@ -1,34 +1,28 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Game tests", () => {
-  test("lower buttons is work", async ({ page }) => {
-    // await page.goto("http://localhost:3000/", { timeout: 100000 });
-    await page.goto("https://frontend-red-phi.vercel.app/", {
-      timeout: 100000,
-    });
-    const button = page.getByText("Play Game");
-    await button.click({ timeout: 100000 });
+    test("lower buttons is work", async ({ page }) => {
+        
+    //   await page.goto("https://frontend-red-phi.vercel.app/");
+      await page.goto("http://localhost:3000/")
+      const button = page.getByText("Play Game");
+      await button.click();
 
-    const lowerButton = page.getByText("Lower ");
-    await lowerButton.click({ timeout: 100000 });
-    const isUpdate = page.getByText("Lower ");
-    // const lower_button_text = await lower_button.innerText({timeout: 100000});
-    // console.log(lower_button)
+      const lowerButton = page.getByText("Lower ");
+      await lowerButton.click();
 
-    if (isUpdate !== null) {
-      //   await expect(page.getByText("Back to menu")).not.toBeNull
+      await page.waitForSelector('[data-testid="score-value"]');
 
-      await expect(page.getByText("Lower ")).toContainText("Lower ", {
-        timeout: 100000,
-      });
-      await expect(page.getByText("Score")).toHaveText("Score: 1", {
-        timeout: 100000,
-      });
-    } else {
-      await expect(page.getByText("Back to menu")).toContainText(
-        "Back to menu",
-        { timeout: 100000 }
-      );
+    try {
+    const scoreValue = await page.$eval('[data-testid="score-value"]', (el) => el.textContent);
+    if (scoreValue?.toLowerCase().startsWith('score:')) {
+        await expect(page.getByText("Lower ")).toHaveText('Lower ');
+        await expect(page.getByText("Score")).toHaveText('Score: 1');
+      } else {
+        await expect(page.getByText("Back to menu")).toHaveText('Back to menu');
+      }
+    } catch {
+        await expect(page.getByText("Back to menu")).toHaveText('Back to menu');
     }
+    });
   });
-});

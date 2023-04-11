@@ -1,33 +1,27 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Game tests", () => {
-  test("higher buttons is work", async ({ page }) => {
-    // await page.goto("http://localhost:3000/", { timeout: 100000 });
-    await page.goto("https://frontend-red-phi.vercel.app/", {
-      timeout: 100000,
-    });
-    const button = page.getByText("Play Game");
-    await button.click({ timeout: 100000 });
+    test("higher buttons is work", async ({ page }) => {        
+    //   await page.goto("https://frontend-red-phi.vercel.app/");
+      await page.goto("http://localhost:3000/")
+      const button = page.getByText("Play Game");
+      await button.click();
 
-    const higherButton = page.getByText("Higher ");
-    await higherButton.click({ timeout: 100000 });
-    const isUpdate = page.getByText("Higher ");
-    // const higher_button_text = await higher_button.innerText({timeout: 100000});
+      const higherButton = page.getByText("Higher ");
+      await higherButton.click();
 
-    if (isUpdate !== null) {
-      //   await expect(page.getByText("Back to menu")).not.toBeNull
+      await page.waitForSelector('[data-testid="score-value"]');
 
-      await expect(page.getByText("Higher ")).toContainText("Higher ", {
-        timeout: 100000,
-      });
-      await expect(page.getByText("Score")).toHaveText("Score: 1", {
-        timeout: 100000,
-      });
-    } else {
-      await expect(page.getByText("Back to menu")).toContainText(
-        "Back to menu",
-        { timeout: 100000 }
-      );
+    try {
+    const scoreValue = await page.$eval('[data-testid="score-value"]', (el) => el.textContent);
+    if (scoreValue?.toLowerCase().startsWith('score:')) {
+        await expect(page.getByText("Higher ")).toHaveText('Higher ');
+        await expect(page.getByText("Score")).toHaveText('Score: 1');
+      } else {
+        await expect(page.getByText("Back to menu")).toHaveText('Back to menu');
+      }
+    } catch {
+        await expect(page.getByText("Back to menu")).toHaveText('Back to menu');
     }
+    });
   });
-});
