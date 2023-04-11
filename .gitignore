@@ -46,3 +46,6 @@ server/lib/parseJSON.ts
 .vercel/
 
 package-lock.json
+/test-results/
+/playwright-report/
+/playwright/.cache/
