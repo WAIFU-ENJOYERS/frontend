@@ -11,7 +11,7 @@ test.describe("Game tests", () => {
     const higherButton = page.getByText("Higher ");
     await higherButton.click();
 
-    await page.waitForTimeout(6000)
+    await page.waitForTimeout(6000);
     try {
       const scoreValue = await page.$eval(
         '[data-testid="score-value"]',

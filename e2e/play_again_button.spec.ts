@@ -12,10 +12,10 @@ test.describe("Game tests", () => {
     // await higherButton.click();
 
     // await page.waitForSelector('[data-testid="score-value"]');
-    var condition = true;
+    let condition = true;
     // go to the end state/game over state
-    while(condition) {
-        try {
+    while (condition) {
+      try {
         // const lowerButton = page.getByText("Lower ");
         // await lowerButton.click();
         // await page.waitForSelector('[data-testid="score-value"]');
@@ -27,18 +27,16 @@ test.describe("Game tests", () => {
 
         //     // await expect(page.getByText("Lower ")).toHaveText("Lower ");
         //     // await expect(page.getByText("Score")).toHaveText("Score: 1");
-        // } 
-        await page.waitForTimeout(8000)
+        // }
+        await page.waitForTimeout(8000);
         // await page.waitForSelector('[data-testid="higher-button"]', {timeout: 120000});
         // await page.waitForSelector('[data-testid="left-likes"]', {timeout: 120000});
         await page.$eval(
-            '[data-testid="higher-button"]',
-            (el) => el.textContent
-          );
+          '[data-testid="higher-button"]',
+          (el) => el.textContent
+        );
         const higherButton = page.getByText("Higher ");
         await higherButton.click();
-
-
 
         // await page.waitForLoadState()
         // await page.waitForSelector('[data-testid="score-value"]');
@@ -46,13 +44,14 @@ test.describe("Game tests", () => {
         //       '[data-testid="score-value"]',
         //       (el) => el.textContent
         //     );
-
-        } catch {
-            condition = false;
-        }
+      } catch {
+        condition = false;
+      }
     }
-    
-    await page.waitForSelector('[data-testid="play-again"]', {timeout: 120000});
+
+    await page.waitForSelector('[data-testid="play-again"]', {
+      timeout: 120000,
+    });
 
     await expect(page.getByText("Play again")).toHaveText("Play again");
     await page.getByText("Play again").click();
