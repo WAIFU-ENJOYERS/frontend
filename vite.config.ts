@@ -11,6 +11,6 @@ export default defineConfig({
         ["text"],
       ],
     },
-    exclude: [...configDefaults.exclude, './e2e/*']
+    exclude: [...configDefaults.exclude, "./e2e/*"],
   },
 });
