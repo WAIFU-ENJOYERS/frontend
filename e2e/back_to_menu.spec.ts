@@ -2,8 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Game tests", () => {
   test("Back to menu button is work", async ({ page }) => {
-    //   await page.goto("https://frontend-red-phi.vercel.app/");
-    await page.goto("http://localhost:3000/");
+    await page.goto("https://frontend-red-phi.vercel.app/");
     const button = page.getByText("Play Game");
     await button.click();
     let condition = true;
@@ -24,7 +23,6 @@ test.describe("Game tests", () => {
     await page.waitForSelector('[data-testid="back-to-menu"]', {
       timeout: 120000,
     });
-    // await page.waitForTimeout(6000);
     await expect(page.getByText("Back to menu")).toHaveText("Back to menu");
     await page.getByText("Back to menu").click();
     await expect(page.getByText("Play Game")).toHaveText("Play Game");
