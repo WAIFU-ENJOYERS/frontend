@@ -4,6 +4,7 @@ test.describe("Game tests", () => {
   test("lower button is work", async ({ page }) => {
     //   await page.goto("https://frontend-red-phi.vercel.app/");
     await page.goto("http://localhost:3000/");
+    await page.waitForSelector('[data-testid="play-game"]');
     const button = page.getByText("Play Game");
     await button.click();
 
