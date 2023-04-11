@@ -1,28 +1,30 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Game tests", () => {
-    test("lower buttons is work", async ({ page }) => {
-        
+  test("lower buttons is work", async ({ page }) => {
     //   await page.goto("https://frontend-red-phi.vercel.app/");
-      await page.goto("http://localhost:3000/")
-      const button = page.getByText("Play Game");
-      await button.click();
+    await page.goto("http://localhost:3000/");
+    const button = page.getByText("Play Game");
+    await button.click();
 
-      const lowerButton = page.getByText("Lower ");
-      await lowerButton.click();
+    const lowerButton = page.getByText("Lower ");
+    await lowerButton.click();
 
-      await page.waitForSelector('[data-testid="score-value"]');
+    await page.waitForSelector('[data-testid="score-value"]');
 
     try {
-    const scoreValue = await page.$eval('[data-testid="score-value"]', (el) => el.textContent);
-    if (scoreValue?.toLowerCase().startsWith('score:')) {
-        await expect(page.getByText("Lower ")).toHaveText('Lower ');
-        await expect(page.getByText("Score")).toHaveText('Score: 1');
+      const scoreValue = await page.$eval(
+        '[data-testid="score-value"]',
+        (el) => el.textContent
+      );
+      if (scoreValue?.toLowerCase().startsWith("score:")) {
+        await expect(page.getByText("Lower ")).toHaveText("Lower ");
+        await expect(page.getByText("Score")).toHaveText("Score: 1");
       } else {
-        await expect(page.getByText("Back to menu")).toHaveText('Back to menu');
+        await expect(page.getByText("Back to menu")).toHaveText("Back to menu");
       }
     } catch {
-        await expect(page.getByText("Back to menu")).toHaveText('Back to menu');
+      await expect(page.getByText("Back to menu")).toHaveText("Back to menu");
     }
-    });
   });
+});

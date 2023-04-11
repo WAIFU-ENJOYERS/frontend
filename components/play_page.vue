@@ -36,7 +36,8 @@
               <p class="text-white">likes</p>
             </v-card>
             <v-card flat class="bg-transparent d-flex align-xl-start mt-auto"
-              ><p data-testid="score-value" class="text-white font-weight-bold">Score: <Score></Score></p
+              ><p data-testid="score-value" class="text-white font-weight-bold">
+                Score: <Score></Score></p
             ></v-card>
           </v-card>
         </v-col>
@@ -66,13 +67,13 @@
               "{{ waifu2.name }}"
             </p>
             <higher-button
-            data-testid="higher-button"
               v-if="guessedState === 0"
+              data-testid="higher-button"
               @guess="guess"
             ></higher-button>
             <lower-button
-            data-testid="lower-button"
               v-if="guessedState === 0"
+              data-testid="lower-button"
               @guess="guess"
             ></lower-button>
             <p v-if="guessedState === 1" class="text-white">has</p>
