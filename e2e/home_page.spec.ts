@@ -9,4 +9,3 @@ test("Play button is work", async ({ page }) => {
   await expect(enterTheGame).not.toBeNull;
   await expect(enterTheGame).toHaveText("Score: 0");
 });
-
